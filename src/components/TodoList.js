@@ -14,7 +14,7 @@ const TodoList = ({ todos, setTodos }) => {
   return (
     <ul>
       {todos.map((todo) => (
-        <li key={todo.id}>
+        <li key={todo.id} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
           <span>{todo.content}</span>
           <button onClick={() => handleDelete(todo.id)}>Delete</button>
         </li>
