@@ -44,7 +44,7 @@ function App() {
       const res = await API.post('/todos/summarize');
       alert('Summary sent to Slack:\n\n' + res.data.summary);
     } catch (err) {
-      alert('Summarizing failed');
+      alert('Failed to summarize');
     }
   };
 
@@ -61,13 +61,20 @@ function App() {
       </div>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id} style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <li key={todo.id} style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            background: '#eee',
+            padding: '8px',
+            borderRadius: '6px',
+            marginBottom: '6px'
+          }}>
             <span>{todo.content}</span>
             <button onClick={() => handleDelete(todo.id)}>Delete</button>
           </li>
         ))}
       </ul>
-      <button onClick={handleSummarize}>Summarize & Send to Slack</button>
+      <button onClick={handleSummarize} style={{ marginTop: '20px' }}>Summarize & Send to Slack</button>
     </div>
   );
 }
